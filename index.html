@@ -22,110 +22,27 @@
 
   </head>
   <body>
-    <nav class="navbar navbar-default navbar-transparent navbar-fixed-top" role="navigation">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Bagsdools</a>
-        </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          
-            
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">La playlist du jour</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">QUI? <span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Diane</a></li>
-                <li><a href="#">Thomas</a></li>
-                <li><a href="#">Zoe</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Separated link</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
+    <video autoplay loop poster="images/canigou.jpg" id="bgvid">
+    <source src="images/chalet2.webm" type="video/webm">
+    <source src="images/chalet2.mp4" type="video/mp4">
+    </video>
 
-    <div id="wrapper">
-      <h1>BAGSDOOLS</h1>
+    <div id="chalet">
+      <p>filmé en 2009 au chalet.</p>
+      <p><a href="front.html">Explorer</a>
+      </p>
+      <button>Pause</button>
     </div>
-
-    <div class="spacer"></div>
-
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-6 col-md-3">
-          <div class="thumbnail">
-            <img src="images/diane.jpg" alt="diane">
-            <div class="caption">
-              <h3>Diane</h3>
-              <p>...</p>
-              <p><a href="#" class="btn btn-primary" role="button">Page</a> <a href="#" class="btn btn-default" role="button">Playlist</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3">
-          <div class="thumbnail">
-            <img src="images/thomas.jpg" alt="thomas">
-            <div class="caption">
-              <h3>Thomas</h3>
-              <p>...</p>
-              <p><a href="#" class="btn btn-primary" role="button">Page</a> <a href="#" class="btn btn-default" role="button">Playlist</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3">
-          <div class="thumbnail">
-            <img src="images/zoe.jpg" alt="zoe">
-            <div class="caption">
-              <h3>Zoé</h3>
-              <p>...</p>
-              <p><a href="#" class="btn btn-primary" role="button">Page</a> <a href="#" class="btn btn-default" role="button">Playlist</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3">
-          <div class="thumbnail">
-            <img src="images/remi.jpg" alt="remi">
-            <div class="caption">
-              <h3>Rémi</h3>
-              <p>...</p>
-              <p><a href="#" class="btn btn-primary" role="button">Page</a> <a href="#" class="btn btn-default" role="button">Playlist</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3">
-          <div class="thumbnail">
-            <img src="images/axel.jpg" alt="axel">
-            <div class="caption">
-              <h3>Axel</h3>
-              <p>...</p>
-              <p><a href="axel.html" class="btn btn-primary" role="button">Page</a> <a href="axel.html" class="btn btn-default" role="button">Playlist</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="spacer"></div>
-
-
-
-
-
+    
       <!-- Including Bootstrap JS (with its jQuery dependency) so that dynamic components work -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+      <script>
+      var video=document.getElementById("bgvid"),pauseButton=document.querySelector("#chalet button");function vidFade(){video.classList.add("stopfade");}
+video.addEventListener('ended',function()
+{video.pause();vidFade();},false);pauseButton.addEventListener("click",function(){video.classList.toggle("stopfade");if(video.paused){video.play();pauseButton.innerHTML="Pause";}else{video.pause();pauseButton.innerHTML="Paused";}},false);video.addEventListener('touchstart',function(e){e.preventDefault();video.play();})
+</script>
 
   </body>
 </html>
